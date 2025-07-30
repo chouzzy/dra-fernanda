@@ -24,11 +24,28 @@ import { PiWhatsappLogo, PiList } from "react-icons/pi";
 
 // --- Dados Locais ---
 import { siteData } from '@/data/siteData'; // Importa os dados do site
+import { motion, Variants } from "framer-motion";
 
 // ============================================================================
 //   COMPONENTE PRINCIPAL: Navbar
 // ============================================================================
 export function Navbar() {
+
+    const MotionButton = motion(Button);
+
+    const itemVariants: Variants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut"
+            }
+        }
+    };
+
+
     // Links de navegação para o menu
     const navLinks = [
         { label: "Sobre", href: "#sobre" },
@@ -39,14 +56,9 @@ export function Navbar() {
     return (
         <Box
             as="nav"
-            position="sticky"
-            top={0}
-            zIndex="sticky"
             w="100%"
             // Efeito de fundo de vidro
-            bg="whiteAlpha.800"
-            backdropFilter="blur(10px)"
-            boxShadow="sm"
+            bg="transparent"
         >
             <Flex
                 w="100%"
@@ -60,10 +72,10 @@ export function Navbar() {
                 {/* Lado Esquerdo: Nome e Especialidade */}
                 <ChakraLink as={Link} href="/" _hover={{ textDecoration: 'none' }}>
                     <VStack align="flex-start" gap={0}>
-                        <Heading as="h1" size="md" color="gray.800">
+                        <Heading as="h1" size="md" color="gray.50">
                             {siteData.doctorName}
                         </Heading>
-                        <Text fontSize="xs" color="gray.600">
+                        <Text fontSize="xs" color="gray.50">
                             {siteData.specialty}
                         </Text>
                     </VStack>
@@ -79,23 +91,33 @@ export function Navbar() {
                         <ChakraLink
                             key={link.label}
                             href={link.href}
-                            fontSize="sm"
+                            fontSize="md"
                             fontWeight="medium"
-                            color="gray.700"
+                            color="gray.50"
                             _hover={{ color: 'pink.500', textDecoration: 'none' }}
                         >
                             {link.label}
                         </ChakraLink>
                     ))}
+                    {/* Ícone e texto como filhos para o padrão Chakra UI v3 */}
                     <ChakraLink
                         href={siteData.contact.whatsappLink}
-                        target='_blank'
+                        target="_blank"
+                        textDecoration="none"
+                    >
+                        <MotionButton
+                            bgColor='fer.lipstick'
+                            color={'gray.50'}
+                            size="lg"
+                            py={6}
+                            px={4}
+                            variants={itemVariants}
                         >
-                        {/* Ícone e texto como filhos para o padrão Chakra UI v3 */}
                             <HStack gap={2}>
-                                <Icon as={PiWhatsappLogo} />
+                                <Icon as={PiWhatsappLogo} boxSize={5} />
                                 <Text>{siteData.hero.ctaButton}</Text>
                             </HStack>
+                        </MotionButton>
                     </ChakraLink>
                 </HStack>
 
@@ -115,7 +137,7 @@ export function Navbar() {
                                 <Menu.Content>
                                     {navLinks.map((link) => (
                                         <Menu.Item key={link.label} value={link.href} asChild>
-                                            <ChakraLink href={link.href} w="100%">
+                                            <ChakraLink href={link.href} w="100%" color='fer.lipstick'>
                                                 {link.label}
                                             </ChakraLink>
                                         </Menu.Item>
@@ -124,7 +146,8 @@ export function Navbar() {
                                     <Menu.Item value="whatsapp" asChild>
                                         <ChakraLink href={siteData.contact.whatsappLink} target='_blank' w="100%" _hover={{ textDecoration: 'none' }}>
                                             <Button
-                                                colorScheme="pink"
+                                                color='fer.lipstick'
+                                                _hover={{ bg: 'fer.makeup', color: 'gray.50' }}
                                                 w="100%"
                                                 size="sm"
                                             >

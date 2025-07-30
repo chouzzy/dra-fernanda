@@ -14,13 +14,23 @@ export function Homepage() {
 
     return (
         <Flex flexDir={'column'} alignItems={'center'} justifyContent={'center'}>
-            <Navbar/>
-            <HeroSection/>
-            <AboutSection/>
-            <ServicesSection/>
-            <FormationSection/>
-            <ContactSection/>
-            <Footer/>
+            <Flex
+                bgImage='url(hero/hero-3.png)'
+                bgPos='center'
+                bgRepeat='no-repeat'
+                bgSize='cover'
+                w='100%'
+                minH='100vh'
+                flexDir={'column'}
+            >
+                <Navbar />
+                <HeroSection />
+            </Flex>
+            <AboutSection />
+            <ServicesSection />
+            <FormationSection />
+            <ContactSection />
+            <Footer />
         </Flex>
     )
 }

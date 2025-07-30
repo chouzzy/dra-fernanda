@@ -9,7 +9,6 @@ import {
     Button,
     Icon,
     VStack,
-    Image,
     HStack,
     Link
 } from "@chakra-ui/react";
@@ -64,7 +63,6 @@ export function HeroSection() {
             px={{ base: 4, md: 8 }}
             align="center"
             justify="center"
-            bg="gray.50" // Um fundo claro e suave
         >
             <Flex
                 w="100%"
@@ -87,22 +85,24 @@ export function HeroSection() {
                         as="h1"
                         fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
                         fontWeight="bold"
-                        color="gray.800"
+                        color="gray.50"
                         lineHeight="1.2"
                         variants={itemVariants}
+                        textShadow={'2px 2px 4px rgba(0, 0, 0, 0.08)'}
                     >
                         {siteData.hero.title}
                     </MotionHeading>
                     <MotionText
                         fontSize={{ base: 'md', lg: 'lg' }}
-                        color="gray.600"
+                        color="gray.50"
                         maxW="lg"
                         variants={itemVariants}
+                        textShadow={'2px 2px 4px rgba(0, 0, 0, 0.1)'}
                     >
                         {siteData.hero.subtitle}
                     </MotionText>
                     <MotionButton
-                        colorScheme="pink"
+                        bgColor='fer.lipstick'
                         size="lg"
                         py={7}
                         px={8}
@@ -114,8 +114,8 @@ export function HeroSection() {
                             textDecoration="none"
                         >
                             <HStack gap={2}>
-                                <Icon as={PiWhatsappLogo} boxSize={5} />
-                                <Text>{siteData.hero.ctaButton}</Text>
+                                <Icon as={PiWhatsappLogo} boxSize={5}/>
+                                <Text color='white'>{siteData.hero.ctaButton}</Text>
                             </HStack>
                         </Link>
                     </MotionButton>
@@ -132,16 +132,7 @@ export function HeroSection() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                    >
-                        <Image
-                            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop"
-                            alt="Dra. Fernanda Fenólio em consulta"
-                            borderRadius="2xl"
-                            boxShadow="2xl"
-                            objectFit="cover"
-                            maxW="450px"
-                        />
-                    </motion.div>
+                    />
                 </Flex>
             </Flex>
         </Flex>

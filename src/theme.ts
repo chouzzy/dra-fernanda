@@ -28,6 +28,30 @@ const config = defineConfig({
                     700: { value: "#CC4B4A" },
                     800: { value: "#B24140" },
                     900: { value: "#993736" },
+                },
+                fer: {
+                    beige: { value: "#bfb9b0" },
+                    beigeLight: { value: "#dad4cb" },
+                    beigeLighter: { value: "#f5f0e7" },
+                    brown: { value: "#b59c88" },
+                    brownLight: { value: "#d1c7b4" },
+                    brownLighter: { value: "#ede3d0" },
+                    makeup: { value: "#bc8878" },
+                    makeupLight: { value: "#d8b4a4" },
+                    makeupLighter: { value: "#f4e0d0" },
+                    choco: { value: "#965d56" },
+                    chocoLight: { value: "#b28982" },
+                    chocoLighter: { value: "#ceb5ae" },
+                    lipstick: { value: "#965d56" },
+                    lipstickLight: { value: "#b28982" },
+                    lipstickLighter: { value: "#ceb5ae" },
+                },
+                social: {
+                    whatsapp: { value: "#25D366" },
+                    instagram: { value: "#E4405F" },
+                    facebook: { value: "#1877F2" },
+                    twitter: { value: "#1DA1F2" },
+                    linkedin: { value: "#0077B5" },
                 }
                 // Cores padrão 'gray', 'blue', etc., vêm do defaultConfig
             },
@@ -40,7 +64,7 @@ const config = defineConfig({
                 bodyBg: {
                     // Valor literal 'white' para base
                     // String de referência '{colors.path.to.token}' para _dark
-                    value: { base: "white", _dark: "{colors.gray.800}" }
+                    value: { base: "{colors.fer.beige}", _dark: "{colors.fer.beige}" }
                 },
                 // Cor principal do texto no corpo
                 textPrimary: {
