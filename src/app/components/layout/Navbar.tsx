@@ -72,10 +72,10 @@ export function Navbar() {
                 {/* Lado Esquerdo: Nome e Especialidade */}
                 <ChakraLink as={Link} href="/" _hover={{ textDecoration: 'none' }}>
                     <VStack align="flex-start" gap={0}>
-                        <Heading as="h1" size="md" color="gray.50" textShadow={'2px 2px 4px rgba(0, 0, 0, 0.08)'}>
+                        <Heading as="h1" size="md" color="gray.50" textShadow={'2px 2px 4px rgba(0, 0, 0, 0.16)'}>
                             {siteData.doctorName}
                         </Heading>
-                        <Text fontSize="xs" color="gray.50" textShadow={'2px 2px 4px rgba(0, 0, 0, 0.08)'}>
+                        <Text fontSize="xs" color="gray.50" textShadow={'2px 2px 4px rgba(0, 0, 0, 0.16)'}>
                             {siteData.specialty}
                         </Text>
                     </VStack>

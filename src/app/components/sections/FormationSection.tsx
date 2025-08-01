@@ -8,10 +8,12 @@ import {
     Text,
     VStack,
     Box,
+    // A MUDANÇA: Importando o SimpleGrid e Icon
+    SimpleGrid,
+    Icon,
 } from "@chakra-ui/react";
 import { motion, Variants } from 'framer-motion';
 
-// --- Ícones ---
 
 // --- Dados Locais ---
 import { academicFormation } from '@/data/siteData';
@@ -30,10 +32,10 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
         opacity: 1,
-        x: 0,
+        y: 0,
         transition: {
             duration: 0.6,
             ease: "easeOut"
@@ -46,18 +48,18 @@ const itemVariants: Variants = {
 // ============================================================================
 export function FormationSection() {
     const MotionVStack = motion(VStack);
-    const MotionFlex = motion(Flex);
     const MotionHeading = motion(Heading);
+    const MotionBox = motion(Box);
 
     return (
         <MotionVStack
             as="section"
             id="formacao" // ID para navegação futura, se necessário
             w="100%"
-            py={{ base: 16, md: 24 }}
-            px={{ base: 4, md: 8 }}
-            bg="white" // Fundo branco para um visual limpo
-            gap={12}
+            py={{ base: 4, md: 8 }}
+            px={{ base: 8, md: 8 }}
+            bg="fer.beigeLighter" // Fundo branco para um visual limpo
+            gap={16}
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -66,57 +68,53 @@ export function FormationSection() {
             {/* Título da Seção */}
             <MotionHeading
                 as="h2"
-                fontSize={{ base: '2xl', md: '4xl' }}
+                fontSize={{ base: '3xl', md: '4xl' }}
                 fontWeight="bold"
-                color="gray.800"
+                color="fer.lipstickLighter"
                 textAlign="center"
                 variants={itemVariants}
             >
-                Formação Académica e Profissional
+                Formação Academica e Profissional
             </MotionHeading>
 
-            {/* Container da Linha do Tempo */}
-            <VStack
+            {/* A MUDANÇA: Usando o SimpleGrid para criar os cards */}
+            <SimpleGrid
                 w="100%"
-                maxW="container.md"
-                mx="auto"
-                align="stretch"
-                gap={0} // O espaçamento será controlado pelos itens
+                maxW='1920px' mx='auto'
+                columns={{ base: 1, md: academicFormation.length }} // 1 coluna no mobile, 2 no desktop
+                gap={{ base: 6, md: 8 }}
             >
+                {/* Mapeia os dados da formação para criar cada card */}
                 {academicFormation.map((item, index) => (
-                    <MotionFlex
+                    <MotionBox
                         key={index}
                         variants={itemVariants}
-                        minH="100px"
+                        as={Flex}
+                        p={4}
+                        bg="white"
+                        borderRadius="sm"
+                        borderTop={'10px solid'}
+                        borderTopColor={'fer.lipstickLight'}
+                        gap={5}
+                        alignItems="start"
                     >
-                        {/* Linha do Tempo (Elemento Visual) */}
-                        <Flex direction="column" align="center" mr={6}>
-                            <Box
-                                w="16px"
-                                h="16px"
-                                bg="pink.100"
-                                borderRadius="full"
-                                border="3px solid"
-                                borderColor="pink.500"
-                                zIndex={1}
-                            />
-                            {/* Linha vertical, exceto no último item */}
-                            {index < academicFormation.length - 1 && (
-                                <Box flex={1} w="2px" bg="gray.200" />
-                            )}
+                        <Flex flexDir={'column'} gap={1}>
+                            <Flex flexDir={'column'} gap={2}>
+                                <Icon as={item.icon} boxSize={8} color="fer.lipstickLight" />
+                                <Text fontSize="sm" fontWeight="bold" color="fer.lipstickLighter" textTransform="uppercase">
+                                    {item.period}
+                                </Text>
+                            </Flex>
+                            <Flex flexDir={'column'} gap={1}>
+                                <Heading as="h3" size="sm" color="gray.800" mt={1}>
+                                    {item.title}
+                                </Heading>
+                                <Text fontSize="sm" color="gray.600">{item.institution}</Text>
+                            </Flex>
                         </Flex>
-
-                        {/* Conteúdo do Item */}
-                        <Box pb={10}>
-                            <Text fontSize="sm" fontWeight="bold" color="pink.600">{item.period}</Text>
-                            <Heading as="h3" size="sm" color="gray.800" mt={1}>
-                                {item.title}
-                            </Heading>
-                            <Text fontSize="sm" color="gray.600">{item.institution}</Text>
-                        </Box>
-                    </MotionFlex>
+                    </MotionBox>
                 ))}
-            </VStack>
+            </SimpleGrid>
         </MotionVStack>
     );
 }

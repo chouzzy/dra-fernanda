@@ -32,7 +32,7 @@ const config = defineConfig({
                 fer: {
                     beige: { value: "#bfb9b0" },
                     beigeLight: { value: "#dad4cb" },
-                    beigeLighter: { value: "#f5f0e7" },
+                    beigeLighter: { value: "#e8e3ddff" },
                     brown: { value: "#b59c88" },
                     brownLight: { value: "#d1c7b4" },
                     brownLighter: { value: "#ede3d0" },
@@ -42,9 +42,9 @@ const config = defineConfig({
                     choco: { value: "#965d56" },
                     chocoLight: { value: "#b28982" },
                     chocoLighter: { value: "#ceb5ae" },
-                    lipstick: { value: "#965d56" },
-                    lipstickLight: { value: "#b28982" },
-                    lipstickLighter: { value: "#ceb5ae" },
+                    lipstick: { value: "#a33c48" },
+                    lipstickLight: { value: "#a1535cff" },
+                    lipstickLighter: { value: "#b0666fff" },
                 },
                 social: {
                     whatsapp: { value: "#25D366" },

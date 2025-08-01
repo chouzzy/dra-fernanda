@@ -7,16 +7,17 @@ import {
     Text,
     VStack,
     Icon,
+    Flex,
     Box,
     // A MUDANÇA: Importando o Collapsible
-    Collapsible,
-    HStack,
+    Collapsible
 } from "@chakra-ui/react";
 import { motion, Variants } from 'framer-motion';
 
 // --- Dados Locais ---
 import { siteData } from '@/data/siteData';
 import { servicesData } from '@/data/servicesData';
+import { PiCaretCircleDown } from "react-icons/pi";
 
 // ============================================================================
 //   VARIANTES DE ANIMAÇÃO (Framer Motion)
@@ -49,76 +50,90 @@ const itemVariants: Variants = {
 export function ServicesSection() {
     const MotionVStack = motion(VStack);
     const MotionBox = motion(Box);
+    const MotionFlex = motion(Flex);
     const MotionHeading = motion(Heading);
 
     return (
-        <MotionBox
+        <MotionFlex
             as="section"
             id="atuacao" // ID para a navegação da Navbar
             w="100%"
             py={{ base: 16, md: 24 }}
             px={{ base: 4, md: 8 }}
-            bg="gray.50" // Fundo claro para alternar com as outras seções
+            bgGradient="to-b" gradientFrom="white" gradientTo="fer.beigeLighter"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
+            alignItems={'center'}
+            justifyContent={'center'}
+            flexDir={{base:"column", md:"row"}}
+            gap={{ base: 8, md: 2 }}
         >
-            <VStack gap={12} maxW="container.lg" mx="auto">
+            <MotionFlex flexDir='column' alignItems='center' justifyContent='center' gap={8} variants={itemVariants} mx='auto'>
                 {/* Título da Seção */}
                 <MotionHeading
                     as="h2"
-                    fontSize={{ base: '2xl', md: '4xl' }}
+                    fontSize={{ base: '3xl', md: '4xl' }}
                     fontWeight="bold"
-                    color="gray.800"
+                    color="fer.lipstickLighter"
                     textAlign="center"
                     variants={itemVariants}
                 >
                     {siteData.services.title}
                 </MotionHeading>
+            </MotionFlex>
 
-                {/* A MUDANÇA: Usando uma lista de Collapsibles */}
-                <MotionVStack
-                    w="100%"
-                    maxW="3xl" // Limita a largura para melhor legibilidade
-                    mx="auto"
-                    variants={containerVariants} // Aplica o stagger nos filhos
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.2 }}
-                    align="stretch"
-                    gap={4}
-                >
-                    {servicesData.map((service) => (
-                        <MotionBox
-                            key={service.value}
-                            variants={itemVariants}
-                            borderWidth="1px"
-                            borderColor="gray.200"
-                            borderRadius="xl"
-                            bg="white"
-                            overflow="hidden"
+            <Flex h="sm" w={1} bg="fer.beigeLighter" borderRadius={'100%'} display={{ base: 'none', md: 'flex' }} />
+
+            {/* A MUDANÇA: Usando uma lista de Collapsibles */}
+            <MotionVStack
+                w="100%"
+                maxW="xl" // Limita a largura para melhor legibilidade
+                mx="auto"
+                variants={containerVariants} // Aplica o stagger nos filhos
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                align="stretch"
+                gap={4}
+                px={{ base: 8, md:0 }}
+                pl={{base:0, md: 4}}
+                py={4}
+            >
+                {servicesData.map((service) => (
+                    <MotionBox
+                        key={service.value}
+                        variants={itemVariants}
+                        borderWidth="1px"
+                        borderColor="gray.200"
+                        borderRadius="sm"
+                        bg="white"
+                        overflow="hidden"
+
+                    >
+                        <Collapsible.Root
+                            borderLeft={'8px solid'}
+                            borderLeftColor={'fer.lipstickLighter'}
                         >
-                            <Collapsible.Root>
-                                <Collapsible.Trigger width="100%" py={4} px={6} cursor={'pointer'} _hover={{ bg: 'gray.100', transition: 'background-color 0.5s' }}>
-                                    <HStack>
-                                        <Icon as={service.icon} fontSize="xl" color="pink.500" />
-                                        <Text fontWeight="medium" flex="1" textAlign="left" color={'black'}>{service.title}</Text>
-                                        {/* O Collapsible não tem um indicador padrão, mas podemos adicionar um se necessário */}
-                                    </HStack>
-                                </Collapsible.Trigger>
-                                <Collapsible.Content>
-                                    <Box pb={5} px={6}>
-                                        <Text color="gray.600" pl={10}>
-                                            {service.content}
-                                        </Text>
-                                    </Box>
-                                </Collapsible.Content>
-                            </Collapsible.Root>
-                        </MotionBox>
-                    ))}
-                </MotionVStack>
-            </VStack>
-        </MotionBox>
+                            <Collapsible.Trigger width="100%" py={4} px={6} cursor={'pointer'} _hover={{ bg: 'gray.100', transition: 'background-color 0.5s' }}>
+                                <Flex w='100%' alignItems="center" gap={4}>
+                                    <Icon as={service.icon} size={'xl'} color="fer.lipstick" />
+                                    <Text fontWeight="medium" flex="1" textAlign="center" color={'gray.600'}>{service.title}</Text>
+                                    <Icon as={PiCaretCircleDown} size={'xl'} color="fer.beige" _hover={{ color: 'fer.lipstick', transition:'color 0.5s' }} />
+                                </Flex>
+                            </Collapsible.Trigger>
+                            <Collapsible.Content>
+                                <Flex pb={5} px={6}>
+                                    <Text color="gray.600" p={4}>
+                                        {service.content}
+                                    </Text>
+                                </Flex>
+                            </Collapsible.Content>
+                        </Collapsible.Root>
+                    </MotionBox>
+                ))}
+            </MotionVStack>
+        </MotionFlex>
     );
 }

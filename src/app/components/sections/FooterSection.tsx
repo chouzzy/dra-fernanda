@@ -40,12 +40,12 @@ export function Footer() {
         <Box
             as="footer"
             w="100%"
-            py={{ base: 10, md: 16 }}
+            py={{ base: 4, md: 8 }}
             px={{ base: 4, md: 8 }}
             bg="gray.800"
             color="gray.300"
         >
-            <VStack gap={10} maxW="container.lg" mx="auto">
+            <VStack gap={2} maxW="container.lg" mx="auto">
                 {/* Seção Superior: Nome, Navegação e Redes Sociais */}
                 <Flex
                     w="100%"
@@ -65,7 +65,7 @@ export function Footer() {
                     </VStack>
 
                     {/* Navegação Principal */}
-                    <HStack gap={{ base: 4, md: 8 }} display={{ base: 'none', md: 'flex' }}>
+                    {/* <HStack gap={{ base: 4, md: 8 }} display={{ base: 'none', md: 'flex' }}>
                         {navLinks.map((link) => (
                             <ChakraLink
                                 key={link.label}
@@ -76,7 +76,7 @@ export function Footer() {
                                 {link.label}
                             </ChakraLink>
                         ))}
-                    </HStack>
+                    </HStack> */}
 
                     {/* Ícones de Redes Sociais */}
                     <HStack gap={2}>
@@ -99,8 +99,6 @@ export function Footer() {
                     </HStack>
                 </Flex>
 
-                <Flex h={1} w='100%' borderColor="gray.700" />
-
                 {/* Seção Inferior: Copyright */}
                 <Flex
                     w="100%"
@@ -109,10 +107,10 @@ export function Footer() {
                     justify="space-between"
                     gap={4}
                 >
-                    <Text fontSize="xs" color="gray.500">
+                    <Text fontSize="xs" color="gray.500" alignItems={'center'}>
                         {siteData.footer.copyright}
                     </Text>
-                    <Text fontSize="xs" color="gray.500">
+                    <Text fontSize="xs" color="gray.500" alignItems={'center'}>
                         Desenvolvido por <ChakraLink href="https://awer.co" target="_blank" color="pink.400" _hover={{ textDecoration: 'underline' }}>Awer</ChakraLink>
                     </Text>
                 </Flex>

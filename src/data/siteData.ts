@@ -1,4 +1,9 @@
+
+
 // src/data/siteData.ts
+
+import { IconType } from "react-icons";
+import { PiStudent, PiCertificate, PiGraduationCap, PiStethoscope } from "react-icons/pi";
 
 // --- TIPAGEM DOS DADOS ---
 // Define a estrutura dos nossos dados para garantir consistência.
@@ -35,6 +40,7 @@ export interface SiteData {
     mainText: string;
     experienceTitle: string;
     experience: Experience[];
+    image: string; // Caminho para a imagem de "Sobre"
   };
   services: {
     title: string;
@@ -51,14 +57,14 @@ export interface SiteData {
 // Todo o texto do site está centralizado aqui para fácil edição.
 
 export const siteData: SiteData = {
-  doctorName: "Dra. Fernanda Fenólio",
+  doctorName: "Dra. Fernanda Milani",
   specialty: "Ginecologista e Obstetra",
   rqe: "RQE: 126405",
   contact: {
-    whatsapp: "+55 (11) 9XXXX-XXXX", // Substituir pelo número real
-    whatsappLink: "https://wa.me/55119XXXXXXXX", // Substituir pelo link real
+    whatsapp: "+55 (11) 98982-3404", // Substituir pelo número real
+    whatsappLink: "https://wa.me/5511989823404", // Substituir pelo link real
     email: "contato@drafernanda.com.br", // Sugestão de e-mail
-    instagramUrl: "https://www.instagram.com/dra.fernanda/", // Sugestão de URL
+    instagramUrl: "https://www.instagram.com/drafernandamilani/", // Sugestão de URL
   },
   hero: {
     title: "Cuidado, acolhimento e excelência em saúde da mulher.",
@@ -66,7 +72,7 @@ export const siteData: SiteData = {
     ctaButton: "Agende sua Consulta",
   },
   about: {
-    title: "Sobre a Dra. Fernanda",
+    title: "Quem sou eu?",
     mainText: "Médica ginecologista formada pela PUC-SP, com residência médica na mesma instituição e especialização em cirurgia ginecológica endócrina. Meu objetivo é oferecer um atendimento acolhedor e de qualidade para as mulheres, sempre trazendo as técnicas e estudos mais recentes para um cuidado personalizado, eficaz e resolutivo.",
     experienceTitle: "Experiência Profissional",
     experience: [
@@ -83,6 +89,7 @@ export const siteData: SiteData = {
         description: "Parte da equipe de ginecologia, oferecendo suporte especializado e realizando procedimentos cirúrgicos."
       },
     ],
+    image:'/about/about.png', // Imagem de exemplo, substituir pelo caminho real
   },
   services: {
     title: "Áreas de Atuação",
@@ -100,31 +107,42 @@ export const siteData: SiteData = {
   },
 };
 
-// Dados da formação para uma seção mais detalhada, se necessário
-export const academicFormation: Experience[] = [
+export interface AcademicFormationItem {
+    period: string;
+    title: string;
+    institution: string;
+    icon: IconType;
+}
+
+export const academicFormation: AcademicFormationItem[] = [
     {
         period: "Em andamento",
         title: "Pós-Graduação em Ginecologia Endócrina",
         institution: "CETRUS",
+        icon: PiStudent,
     },
     {
         period: "2024",
         title: "Título de Especialista em Ginecologia e Obstetrícia (TEGO)",
         institution: "FEBRASGO",
+        icon: PiCertificate,
     },
     {
         period: "2024 - 2025",
         title: "Médica Voluntária da FMUSP",
         institution: "Hospital das Clínicas - Setor de Endometriose",
+        icon: PiStethoscope,
     },
     {
         period: "2021 - 2024",
         title: "Residência Médica em Ginecologia e Obstetrícia",
         institution: "Pontifícia Universidade Católica de São Paulo (PUC-SP)",
+        icon: PiStethoscope,
     },
     {
         period: "2015 - 2020",
         title: "Graduação em Medicina",
         institution: "Pontifícia Universidade Católica de São Paulo (PUC-SP)",
+        icon: PiGraduationCap,
     },
 ]
