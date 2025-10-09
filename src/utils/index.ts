@@ -1,11 +1,11 @@
+ 
+const whatsappNumber = 5511989823404
+const email = `drafernandamilani@gmail.com`
+const instagram = `https://www.instagram.com/drafernandamilani/`
 
-const whatsappNumber = 5516991790291
-const email = `studio.torroja@gmail.com`
-const instagram = `https://www.instagram.com/studio.torroja/`
+const mapsExternalLink = 'https://www.google.com/maps?ll=-23.566026,-46.642105&z=16&t=h&hl=pt-BR&gl=BR&mapclient=embed&q=R.+Maestro+Cardim,+592+-+5%C2%BA+andar,+Sala+2+-+Bela+Vista+S%C3%A3o+Paulo+-+SP+01323-001'
 
-
-
-const mapsLink = "https://www.google.com/maps/place/Av.+Prof.+Othon+Gama+D'E%C3%A7a,+677+-+Centro,+Florian%C3%B3polis+-+SC,+88015-240/@-27.589685,-48.5521411,986m/data=!3m2!1e3!4b1!4m6!3m5!1s0x95273818ef44cf45:0x820c90460fe96ac6!8m2!3d-27.589685!4d-48.5521411!16s%2Fg%2F11c51w2ntx?entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
+const mapsLink = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4442.765244938813!2d-46.6421055!3d-23.566025600000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59bcb72523a5%3A0xe2b210dd0d59f920!2sR.%20Maestro%20Cardim%2C%20592%20-%205%C2%BA%20andar%2C%20Sala%202%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001323-001!5e1!3m2!1spt-BR!2sbr!4v1760045163152!5m2!1spt-BR!2sbr"
 export function slugify(text: string) {
     return text
         .toString()
@@ -36,7 +36,7 @@ const whatsappLink = (path?: string) => {
 
 const instagramLink = (path?: string) => {
 
-    return `${email}`
+    return `${instagram}`
 }
 
 const mailLink = (path?: string) => {
@@ -45,4 +45,4 @@ const mailLink = (path?: string) => {
 }
 
 
-export { scrollToSection, whatsappLink, whatsappNumber, mapsLink, instagramLink, mailLink }
+export { scrollToSection, whatsappLink, whatsappNumber, mapsLink, instagramLink, mailLink, mapsExternalLink }

@@ -10,7 +10,8 @@ import {
     Box,
     HStack,
     Icon,
-    Link as ChakraLink
+    Link as ChakraLink,
+    Link
 } from "@chakra-ui/react";
 import { motion, Variants } from 'framer-motion';
 
@@ -19,6 +20,7 @@ import { PiWhatsappLogo, PiEnvelopeSimple, PiInstagramLogo } from "react-icons/p
 
 // --- Dados Locais ---
 import { siteData } from '@/data/siteData';
+import { mapsExternalLink, mapsLink } from "@/utils";
 
 // ============================================================================
 //   VARIANTES DE ANIMAÇÃO (Framer Motion)
@@ -53,7 +55,7 @@ export function ContactSection() {
     const MotionFlex = motion(Flex);
 
     // Adicione a URL de embed do Google Maps ao seu siteData.ts
-    const googleMapsEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.145733155122!2d-46.656534584475!3d-23.56313936754443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0x2025a70e096a9e72!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1678886555941!5m2!1spt-BR!2sbr";
+    const googleMapsEmbedUrl = mapsLink;
 
     return (
         <MotionVStack
@@ -63,13 +65,13 @@ export function ContactSection() {
             py={{ base: 16, md: 24 }}
             px={{ base: 4, md: 8 }}
             bgGradient="to-b" gradientFrom="fer.beigeLighter" gradientTo="fer.beige"
-           
+
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
         >
-            <Flex flexDir={"column"} alignItems="center" w="100%" maxW='1920px' mx='auto'  gap={12}>
+            <Flex flexDir={"column"} alignItems="center" w="100%" maxW='1920px' mx='auto' gap={12}>
                 {/* Título da Seção */}
                 <MotionVStack textAlign="center" gap={4} variants={itemVariants}>
                     <Heading as="h2" fontSize={{ base: '2xl', md: '4xl' }} fontWeight="bold" color="fer.lipstickLighter">
@@ -113,7 +115,7 @@ export function ContactSection() {
                         <ContactInfo
                             icon={PiInstagramLogo}
                             title="Instagram"
-                            content="@dra.fernandafenolio"
+                            content="@drafernandamilani"
                             buttonText="Seguir no Instagram"
                             href={siteData.contact.instagramUrl}
                         />
@@ -123,10 +125,12 @@ export function ContactSection() {
                     <MotionFlex
                         flex={1.5}
                         w="100%"
+                        gap={4}
                         h={{ base: "300px", md: "450px" }}
                         borderRadius="lg"
                         overflow="hidden"
                         variants={itemVariants}
+                        flexDir={'column'}
                     >
                         <iframe
                             src={googleMapsEmbedUrl}
@@ -137,6 +141,16 @@ export function ContactSection() {
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
                         ></iframe>
+                        <Flex bgColor={'white'}  px={4} py={2} borderRadius={'md'} boxShadow={'md'} flexDir={'column'} alignItems={'center'} textAlign={'center'}>
+                            <Link href={mapsExternalLink} target="_blank" >
+                                <Text color={'fer.lipstickLight'} _hover={{ textDecoration: 'none', color: 'pink.600' }}>
+                                    Endereço:
+                                    Rua Maestro Cardim, 592 – 5º andar, Sala 2
+                                    Bela Vista – São Paulo – SP
+
+                                </Text>
+                            </Link>
+                        </Flex>
                     </MotionFlex>
                 </Flex>
             </Flex>
