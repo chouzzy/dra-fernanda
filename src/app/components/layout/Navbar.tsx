@@ -59,6 +59,7 @@ export function Navbar() {
             w="100%"
             // Efeito de fundo de vidro
             bg="transparent"
+            zIndex={10}
         >
             <Flex
                 w="100%"
@@ -95,8 +96,11 @@ export function Navbar() {
                             fontWeight="medium"
                             color="gray.50"
                             _hover={{ color: 'pink.500', textDecoration: 'none' }}
+                            cursor={'pointer'}
                         >
-                            {link.label}
+                            <Text>
+                                {link.label}
+                            </Text>
                         </ChakraLink>
                     ))}
                     {/* Ícone e texto como filhos para o padrão Chakra UI v3 */}
