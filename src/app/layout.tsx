@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import Provider from "./providers"
+import GoogleTagManager from "./components/ui/GoogleTagManager";
 
 
 // const geistSans = Geist({
@@ -15,7 +16,7 @@ import Provider from "./providers"
 
 const roboto = Roboto({
   variable: "--font-roboto",
-  weight: [ '100', '300', '400', '500', '700', '900' ],
+  weight: ['100', '300', '400', '500', '700', '900'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
 })
@@ -36,7 +37,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${roboto.variable} font-sans`}>
         <Provider>
-          {children}
+          <GoogleTagManager/>
+            {children}
         </Provider>
       </body>
     </html>
