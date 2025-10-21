@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import Provider from "./providers"
 import GoogleTagManager from "./components/ui/GoogleTagManager";
+import { Suspense } from "react";
 
 
 // const geistSans = Geist({
@@ -35,10 +36,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* <meta name="google-site-verification" content="M3UzLsJpL1zYFyj5Wt6wbWHLzefipBgkEYLZ-yHSGoQ" /> */}
+      </head>
       <body className={`${roboto.variable} font-sans`}>
         <Provider>
-          <GoogleTagManager/>
-            {children}
+          <Suspense fallback={null}>
+            <GoogleTagManager />
+          </Suspense>
+          {children}
         </Provider>
       </body>
     </html>
