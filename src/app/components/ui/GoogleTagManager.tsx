@@ -5,7 +5,7 @@ import { usePathname, useSearchParams } from 'next/navigation'
 import Script from 'next/script'
 import { useEffect } from 'react'
 
-const GTM_ID = 'g-j6c201fe21' // <-- SUBSTITUA PELO SEU ID
+const GTM_ID = 'G-J6C201FE21' // <-- SUBSTITUA PELO SEU ID
 
 export default function GoogleTagManager() {
   const pathname = usePathname()
