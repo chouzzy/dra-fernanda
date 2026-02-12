@@ -145,8 +145,7 @@ export function ContactSection() {
                             <Link href={mapsExternalLink} target="_blank" >
                                 <Text color={'fer.lipstickLight'} _hover={{ textDecoration: 'none', color: 'pink.600' }}>
                                     Endereço:
-                                    Rua Maestro Cardim, 592 – 5º andar, Sala 2
-                                    Bela Vista – São Paulo – SP
+                                    Livance Moema - Av. dos Carinás, 185 - 2º andar. O estacionamento está localizado ao lado do número 181.
 
                                 </Text>
                             </Link>
