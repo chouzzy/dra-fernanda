@@ -3,9 +3,9 @@ const whatsappNumber = 5511989823404
 const email = `drafernandamilani@gmail.com`
 const instagram = `https://www.instagram.com/drafernandamilani/`
 
-const mapsExternalLink = 'https://www.google.com/maps?ll=-23.566026,-46.642105&z=16&t=h&hl=pt-BR&gl=BR&mapclient=embed&q=R.+Maestro+Cardim,+592+-+5%C2%BA+andar,+Sala+2+-+Bela+Vista+S%C3%A3o+Paulo+-+SP+01323-001'
+const mapsExternalLink = 'https://www.google.com/maps?ll=-23.6120676,-46.6678561&z=16&t=h&hl=pt-BR&gl=BR&mapclient=embed&q=Livance+Moema+-+Av.+dos+Carin%C3%A1s,+185+-+2%C2%BA+andar.+O+estacionamento+est%C3%A1+localizado+ao+lado+do+n%C3%BAmero+181.'
 
-const mapsLink = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4442.765244938813!2d-46.6421055!3d-23.566025600000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59bcb72523a5%3A0xe2b210dd0d59f920!2sR.%20Maestro%20Cardim%2C%20592%20-%205%C2%BA%20andar%2C%20Sala%202%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001323-001!5e1!3m2!1spt-BR!2sbr!4v1760045163152!5m2!1spt-BR!2sbr"
+const mapsLink = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4855.3383793655885!2d-46.667856099999995!3d-23.6120676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5b240937f1e1%3A0xdb44720b3285a7a5!2sLivance%20Moema!5e1!3m2!1spt-BR!2sbr!4v1770901777324!5m2!1spt-BR!2sbr"
 export function slugify(text: string) {
     return text
         .toString()

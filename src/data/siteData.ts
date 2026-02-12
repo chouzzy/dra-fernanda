@@ -81,7 +81,7 @@ export const siteData: SiteData = {
       Com formação sólida e atuação ética, Dra.Fernanda oferece acompanhamento ginecológico baseado em evidências científicas, respeitando as singularidades de cada fase da vida — da adolescência à menopausa. ${'\n\n'}
       Aqui, o foco é promover saúde, prevenir doenças e apoiar decisões conscientes sobre o bem- estar feminino.`,
     title: "Sobre Mim",
-    mainText: "Médica formada pela PUC-SP, com residência em Ginecologia e Obstetrícia. Especialista em cirurgia ginecológica, ginecologia endócrina e saúde da mulher. Atuação em hospitais de referência como Beneficência Portuguesa e Hospital das Clínicas da FMUSP e, no momento, cursando pós graduação de ginecologia endócrina pela CETRUS.",
+    mainText: "Prazer, Fe. Ginecologista e pós-graduanda em Ginecologia Endócrina e Cirurgia Ginecológica, com foco no cuidado integral e individualizado da saúde da mulher, acompanhando todas as fases da vida. Atuação em hospitais de referência como Beneficência Portuguesa, Santa Joana e Hospital das Clínicas da FMUSP.",
     secondTitle: "Filosofia de Atendimento",
     secondMainText: "Cuidado, acolhimento e excelência em saúde da mulher. Atendimento personalizado, baseado em evidências científicas, com foco no bem-estar físico e emocional da paciente.",
     experienceTitle: "Experiência Profissional",
@@ -96,7 +96,7 @@ export const siteData: SiteData = {
         period: "Atual",
         title: "Retaguarda de Ginecologia",
         institution: "Hospital Beneficência Portuguesa de São Paulo",
-        description: "Parte da equipe de ginecologia, oferecendo suporte especializado e realizando procedimentos cirúrgicos."
+        description: "Fez parte da equipe de retaguarda de ginecologia, oferecendo suporte especializado e realizando procedimentos cirúrgicos."
       },
     ],
     image: '/about/about.png', // Imagem de exemplo, substituir pelo caminho real
@@ -127,7 +127,7 @@ export interface AcademicFormationItem {
 
 export const academicFormation: AcademicFormationItem[] = [
   {
-    period: "Em andamento",
+    period: "2025-2026",
     title: "Pós-Graduação em Ginecologia Endócrina",
     institution: "CETRUS",
     icon: PiStudent,
@@ -139,7 +139,7 @@ export const academicFormation: AcademicFormationItem[] = [
     icon: PiCertificate,
   },
   {
-    period: "2024 - 2025",
+    period: "2024 - atual",
     title: "Médica Voluntária da FMUSP",
     institution: "Hospital das Clínicas - Setor de Endometriose",
     icon: PiStethoscope,
