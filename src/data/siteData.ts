@@ -80,7 +80,7 @@ export const siteData: SiteData = {
     prefax: `A saúde da mulher merece atenção integral, acolhimento e informação de qualidade. No consultório da Dra. Fernanda Milani, cada paciente é recebido com empatia e profissionalismo, em um ambiente seguro para falar sobre seu corpo, suas dúvidas e seus ciclos. ${'\n\n'}
       Com formação sólida e atuação ética, Dra.Fernanda oferece acompanhamento ginecológico baseado em evidências científicas, respeitando as singularidades de cada fase da vida — da adolescência à menopausa. ${'\n\n'}
       Aqui, o foco é promover saúde, prevenir doenças e apoiar decisões conscientes sobre o bem- estar feminino.`,
-    title: "Prazer, Fe. ",
+    title: "Prazer, Fe!",
     mainText: "Ginecologista e pós-graduada em Ginecologia Endócrina e Cirurgia Ginecológica, com foco no cuidado integral e individualizado da saúde da mulher, acompanhando todas as fases da vida. Atuação em hospitais de referência como Beneficência Portuguesa, Santa Joana e Hospital das Clínicas da FMUSP.",
     secondTitle: "Filosofia de Atendimento",
     secondMainText: "Cuidado, acolhimento e excelência em saúde da mulher. Atendimento personalizado, baseado em evidências científicas, com foco no bem-estar físico e emocional da paciente.",
