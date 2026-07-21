@@ -3,9 +3,16 @@ const whatsappNumber = 5511989823404
 const email = `drafernandamilani@gmail.com`
 const instagram = `https://www.instagram.com/drafernandamilani/`
 
-const mapsExternalLink = 'https://www.google.com/maps?ll=-23.6120676,-46.6678561&z=16&t=h&hl=pt-BR&gl=BR&mapclient=embed&q=Livance+Moema+-+Av.+dos+Carin%C3%A1s,+185+-+2%C2%BA+andar.+O+estacionamento+est%C3%A1+localizado+ao+lado+do+n%C3%BAmero+181.'
+// Endereço do consultório (LUMÊ Aesthetic & Health)
+const address = 'Alameda dos Maracatins, 426 - Conj. 106/107 - Moema, São Paulo - SP'
+const addressQuery = 'Alameda dos Maracatins, 426 - Moema, São Paulo - SP'
 
-const mapsLink = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4855.3383793655885!2d-46.667856099999995!3d-23.6120676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5b240937f1e1%3A0xdb44720b3285a7a5!2sLivance%20Moema!5e1!3m2!1spt-BR!2sbr!4v1770901777324!5m2!1spt-BR!2sbr"
+// Link para abrir a rota no Google Maps (novo endereço)
+const mapsExternalLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressQuery)}`
+
+// URL de incorporação (embed) do mapa. O formato "output=embed" funciona sem
+// chave de API e sempre aponta o pin para o endereço pesquisado.
+const mapsLink = `https://maps.google.com/maps?q=${encodeURIComponent(addressQuery)}&t=&z=16&ie=UTF8&iwloc=&output=embed`
 export function slugify(text: string) {
     return text
         .toString()
@@ -45,4 +52,4 @@ const mailLink = (path?: string) => {
 }
 
 
-export { scrollToSection, whatsappLink, whatsappNumber, mapsLink, instagramLink, mailLink, mapsExternalLink }
+export { scrollToSection, whatsappLink, whatsappNumber, mapsLink, instagramLink, mailLink, mapsExternalLink, address, addressQuery }

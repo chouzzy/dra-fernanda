@@ -20,7 +20,7 @@ import { PiWhatsappLogo, PiEnvelopeSimple, PiInstagramLogo } from "react-icons/p
 
 // --- Dados Locais ---
 import { siteData } from '@/data/siteData';
-import { mapsExternalLink, mapsLink } from "@/utils";
+import { address, mapsExternalLink, mapsLink } from "@/utils";
 
 // ============================================================================
 //   VARIANTES DE ANIMAÇÃO (Framer Motion)
@@ -144,9 +144,8 @@ export function ContactSection() {
                         <Flex bgColor={'white'}  px={4} py={2} borderRadius={'md'} boxShadow={'md'} flexDir={'column'} alignItems={'center'} textAlign={'center'}>
                             <Link href={mapsExternalLink} target="_blank" >
                                 <Text color={'fer.lipstickLight'} _hover={{ textDecoration: 'none', color: 'pink.600' }}>
-                                    Endereço:
-                                    Livance Moema - Av. dos Carinás, 185 - 2º andar. O estacionamento está localizado ao lado do número 181.
-
+                                    <Text as="span" fontWeight="bold">LUMÊ Aesthetic &amp; Health</Text>
+                                    {' — '}{address}
                                 </Text>
                             </Link>
                         </Flex>

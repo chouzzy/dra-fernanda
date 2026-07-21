@@ -1,62 +1,40 @@
 // components/GoogleTagManager.tsx
 'use client'
 
-import { usePathname, useSearchParams } from 'next/navigation'
 import Script from 'next/script'
-import { useEffect } from 'react'
 
-const GTM_ID = 'G-J6C201FE21' // <-- SUBSTITUA PELO SEU ID
+// ID de Medição do Google Analytics 4 (formato G-XXXXXXXX).
+// OBS: o script antigo carregava "gtm.js" (Google Tag Manager) com este ID de GA4,
+// por isso o GA4 acusava "A coleta de dados não está ativa no seu site".
+// O correto para um ID G- é carregar "gtag/js" + inicializar via gtag('config').
+const GA_MEASUREMENT_ID = 'G-J6C201FE21'
 
 export default function GoogleTagManager() {
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-
-  useEffect(() => {
-    if (pathname) {
-      pageview(pathname)
-    }
-  }, [pathname, searchParams])
-
-  // Este trecho é importante para garantir que a `dataLayer` esteja disponível.
-  // E também para o evento de pageview inicial.
   return (
     <>
-      <noscript>
-        <iframe
-          src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-          height="0"
-          width="0"
-          style={{ display: 'none', visibility: 'hidden' }}
-        ></iframe>
-      </noscript>
+      {/* Carrega a biblioteca oficial do Google Analytics 4 (gtag.js) */}
       <Script
-        id="gtm-script"
+        id="ga4-lib"
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+      />
+      {/* Inicializa o gtag. O gtag('config') já dispara o page_view inicial.
+          As navegações internas (SPA) e os cliques de saída (ex.: botões do
+          WhatsApp para wa.me/...) são capturados automaticamente pela
+          "Medição avançada" do GA4 — não é preciso enviar eventos manualmente
+          (fazer isso duplicaria os page_views nas navegações). */}
+      <Script
+        id="ga4-init"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','${GTM_ID}');
-  `,
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `,
         }}
       />
     </>
   )
-}
-
-// Função auxiliar para enviar o evento de pageview
-export const pageview = (url: string) => {
-  if (typeof window.dataLayer !== 'undefined') {
-    window.dataLayer.push({
-      event: 'pageview',
-      page: url,
-    })
-  } else {
-    console.log({
-      event: 'pageview',
-      page: url,
-    })
-  }
 }

@@ -19,6 +19,7 @@ import { PiWhatsappLogo, PiEnvelopeSimple, PiInstagramLogo } from "react-icons/p
 
 // --- Dados Locais ---
 import { siteData } from '@/data/siteData';
+import { address, mapsExternalLink } from '@/utils';
 
 // ============================================================================
 //   COMPONENTE PRINCIPAL: Footer
@@ -55,13 +56,23 @@ export function Footer() {
                     gap={{ base: 8, md: 4 }}
                 >
                     {/* Nome e Especialidade */}
-                    <VStack align={{ base: 'center', md: 'flex-start' }} gap={0}>
+                    <VStack align={{ base: 'center', md: 'flex-start' }} gap={1}>
                         <Heading as="h2" size="md" color="white">
                             {siteData.doctorName}
                         </Heading>
                         <Text fontSize="sm" color="gray.400">
                             {siteData.specialty}
                         </Text>
+                        <ChakraLink
+                            href={mapsExternalLink}
+                            target="_blank"
+                            fontSize="xs"
+                            color="gray.400"
+                            textAlign={{ base: 'center', md: 'left' }}
+                            _hover={{ color: 'pink.300', textDecoration: 'underline' }}
+                        >
+                            LUMÊ Aesthetic &amp; Health — {address}
+                        </ChakraLink>
                     </VStack>
 
                     {/* Navegação Principal */}
