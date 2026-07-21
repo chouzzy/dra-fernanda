@@ -142,7 +142,7 @@ export function ContactSection() {
                             referrerPolicy="no-referrer-when-downgrade"
                         ></iframe>
                         <Flex bgColor={'white'}  px={4} py={2} borderRadius={'md'} boxShadow={'md'} flexDir={'column'} alignItems={'center'} textAlign={'center'}>
-                            <Link href={mapsExternalLink} target="_blank" >
+                            <Link href={mapsExternalLink} target="_blank" rel="noopener noreferrer" >
                                 <Text color={'fer.lipstickLight'} _hover={{ textDecoration: 'none', color: 'pink.600' }}>
                                     <Text as="span" fontWeight="bold">LUMÊ Aesthetic &amp; Health</Text>
                                     {' — '}{address}
@@ -190,7 +190,7 @@ function ContactInfo({ icon, title, content, buttonText, href }: ContactInfoProp
             <ChakraLink
                 as={ChakraLink}
                 href={href}
-                target="_blank"
+                target="_blank" rel="noopener noreferrer"
                 color={'fer.lipstickLighter'}
                 fontWeight={'medium'}
                 p={2}

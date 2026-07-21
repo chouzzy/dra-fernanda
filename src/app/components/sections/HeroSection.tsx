@@ -121,6 +121,7 @@ export function HeroSection() {
                             <Link
                                 href={siteData.contact.whatsappLink}
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 textDecoration="none"
                             >
                                 <HStack gap={2}>

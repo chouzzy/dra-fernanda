@@ -65,7 +65,7 @@ export function Footer() {
                         </Text>
                         <ChakraLink
                             href={mapsExternalLink}
-                            target="_blank"
+                            target="_blank" rel="noopener noreferrer"
                             fontSize="xs"
                             color="gray.400"
                             textAlign={{ base: 'center', md: 'left' }}
@@ -95,7 +95,7 @@ export function Footer() {
                             <ChakraLink
                                 key={social.label}
                                 href={social.href}
-                                target="_blank"
+                                target="_blank" rel="noopener noreferrer"
                             >
                             <IconButton
                                 aria-label={social.label}
@@ -122,7 +122,7 @@ export function Footer() {
                         {siteData.footer.copyright}
                     </Text>
                     <Text fontSize="xs" color="gray.500" alignItems={'center'}>
-                        Desenvolvido por <ChakraLink href="https://awer.co" target="_blank" color="pink.400" _hover={{ textDecoration: 'underline' }}>Awer</ChakraLink>
+                        Desenvolvido por <ChakraLink href="https://awer.co" target="_blank" rel="noopener noreferrer" color="pink.400" _hover={{ textDecoration: 'underline' }}>Awer</ChakraLink>
                     </Text>
                 </Flex>
             </VStack>

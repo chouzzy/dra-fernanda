@@ -106,7 +106,7 @@ export function Navbar() {
                     {/* Ícone e texto como filhos para o padrão Chakra UI v3 */}
                     <ChakraLink
                         href={siteData.contact.whatsappLink}
-                        target="_blank"
+                        target="_blank" rel="noopener noreferrer"
                         textDecoration="none"
                     >
                         <MotionButton
@@ -148,7 +148,7 @@ export function Navbar() {
                                     ))}
                                     <Menu.Separator />
                                     <Menu.Item value="whatsapp" asChild>
-                                        <ChakraLink href={siteData.contact.whatsappLink} target='_blank' w="100%" _hover={{ textDecoration: 'none' }}>
+                                        <ChakraLink href={siteData.contact.whatsappLink} target='_blank' rel="noopener noreferrer" w="100%" _hover={{ textDecoration: 'none' }}>
                                             <Button
                                                 color='fer.lipstick'
                                                 _hover={{ bg: 'fer.makeup', color: 'gray.50' }}
