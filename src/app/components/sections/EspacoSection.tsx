@@ -117,13 +117,13 @@ export function EspacoSection() {
             {/* Imagem em destaque (fachada / parede LUMÊ) */}
             <MotionBox
                 w="100%"
-                maxW="1920px"
+                maxW="6xl"
                 variants={itemVariants}
                 borderRadius="lg"
                 overflow="hidden"
                 boxShadow="lg"
             >
-                <AspectRatio ratio={{ base: 4 / 3, md: 21 / 9 }}>
+                <AspectRatio ratio={{ base: 4 / 3, md: 16 / 9 }}>
                     <Image
                         src="/lume/fachada.jpg"
                         alt="Parede de identidade da LUMÊ Aesthetic & Health"
@@ -138,7 +138,7 @@ export function EspacoSection() {
             {/* Grade com os demais ambientes */}
             <SimpleGrid
                 w="100%"
-                maxW="1920px"
+                maxW="6xl"
                 columns={{ base: 1, md: 3 }}
                 gap={{ base: 6, md: 8 }}
             >
