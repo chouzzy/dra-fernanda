@@ -6,6 +6,7 @@ import { HeroSection } from "./sections/HeroSection"
 import { AboutSection } from "./sections/AboutSection"
 import { ServicesSection } from "./sections/ServicesSection"
 import { FormationSection } from "./sections/FormationSection"
+import { EspacoSection } from "./sections/EspacoSection"
 import { ContactSection } from "./sections/ContactSection"
 import { Footer } from "./sections/FooterSection"
 
@@ -50,6 +51,7 @@ export function Homepage() {
             <AboutSection />
             <ServicesSection />
             <FormationSection />
+            <EspacoSection />
             <ContactSection />
             <Footer />
         </Flex>
